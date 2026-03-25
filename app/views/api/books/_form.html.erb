@@ -2,7 +2,8 @@
   <%= form_with model: @book,
         url: @book.persisted? ? "/api/books/#{@book.id}/update" : "/api/books",
         method: :post,
-        local: true do |f| %>
+        local: true, 
+        multipart: true do |f| %>
 
     <div style="margin-bottom: 16px;">
       <%= f.label :title %><br>
@@ -32,6 +33,11 @@
     <div style="margin-bottom: 16px;">
       <%= f.label :published_on %><br>
       <%= f.date_field :published_on, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+       <%= f.label :cover_image, "Book Cover" %><br>
+       <%= f.file_field :cover_image, accept: "image/*", style: "width:100%; padding:10px;" %>
     </div>
 
     <div>
