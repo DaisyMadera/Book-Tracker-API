@@ -1,0 +1,43 @@
+<div style="max-width: 700px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <%= form_with model: @book,
+        url: @book.persisted? ? "/api/books/#{@book.id}/update" : "/api/books",
+        method: :post,
+        local: true do |f| %>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :author %><br>
+      <%= f.text_field :author, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :genre %><br>
+      <%= f.text_field :genre, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :rating %><br>
+      <%= f.number_field :rating, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :read_status %><br>
+      <%= f.select :read_status, ["to_read", "reading", "completed"], {}, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <%= f.label :published_on %><br>
+      <%= f.date_field :published_on, style: "width:100%; padding:10px;" %>
+    </div>
+
+    <div>
+      <%= f.submit(@book.persisted? ? "Update Book" : "Create Book",
+            style: "background:#007BFF; color:white; border:none; padding:10px 16px; border-radius:6px;") %>
+      <a href="/api/books" style="margin-left: 10px;">Cancel</a>
+    </div>
+  <% end %>
+</div>

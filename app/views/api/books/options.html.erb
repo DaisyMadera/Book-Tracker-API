@@ -1,0 +1,35 @@
+<div style="max-width: 850px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h1 style="color: #8B0000;">Books Endpoint Options</h1>
+  <p style="color: #444;">
+    This page describes the available methods and routes for the books resource.
+  </p>
+
+  <div style="margin-top: 24px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px;">
+    <h2>Collection Methods</h2>
+    <ul>
+      <% (@options_data[:methods] || []).each do |method| %>
+        <li><%= method %></li>
+      <% end %>
+    </ul>
+
+    <h2>Single Book Methods</h2>
+    <ul>
+      <% (@options_data[:item_methods] || []).each do |method| %>
+        <li><%= method %></li>
+      <% end %>
+    </ul>
+
+    <h2>Routes</h2>
+    <ul>
+      <% (@options_data[:routes] || {}).each do |name, path| %>
+        <li><strong><%= name.to_s.capitalize %>:</strong> <code><%= path %></code></li>
+      <% end %>
+    </ul>
+
+    <div style="margin-top: 24px;">
+      <a href="/api/books" style="text-decoration: none; color: white; background: #007BFF; padding: 10px 16px; border-radius: 6px;">
+        ← Back to Books
+      </a>
+    </div>
+  </div>
+</div>

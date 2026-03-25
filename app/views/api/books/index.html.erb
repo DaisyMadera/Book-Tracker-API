@@ -1,0 +1,51 @@
+<div style="max-width: 1100px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <h1 style="color: #8B0000; margin-bottom: 8px;">Books</h1>
+      <p style="color: #555;">A simple list of tracked books.</p>
+    </div>
+
+    <div>
+      <a href="/api" style="text-decoration: none; color: white; background: #6c757d; padding: 10px 14px; border-radius: 6px; margin-right: 8px;">Back Home</a>
+      <a href="/api/books/options" style="text-decoration: none; color: white; background: #007BFF; padding: 10px 14px; border-radius: 6px; margin-right: 8px;">View Options</a>
+      <a href="/api/books/new" style="text-decoration: none; color: white; background: #28a745; padding: 10px 14px; border-radius: 6px;">Add Book</a>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <table style="width: 100%; border-collapse: collapse; background: white; border: 1px solid #ddd;">
+      <thead style="background: #f3f3f3;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #ddd;">Title</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Author</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Genre</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Rating</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Status</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Published</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.title %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.author %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.genre %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.rating %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.read_status %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;"><%= book.published_on %></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">
+              <a href="/api/books/<%= book.id %>/edit" style="margin-right: 8px;">Edit</a>
+
+              <%= button_to "Delete",
+                    "/api/books/#{book.id}/delete",
+                    method: :post,
+                    form: { style: "display:inline;" },
+                    style: "background:#dc3545; color:white; border:none; padding:6px 10px; border-radius:4px; cursor:pointer;" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
