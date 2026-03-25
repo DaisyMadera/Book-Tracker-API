@@ -37,5 +37,5 @@ cd Book-Tracker-API
 
 Once the server is running, open these in your browser:
 
-http://127.0.0.1:3000/api
-http://127.0.0.1:3000/api/books
+- http://127.0.0.1:3000/api
+- http://127.0.0.1:3000/api/books
