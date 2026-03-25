@@ -28,7 +28,7 @@ This project allows users to view, add, edit, and delete books through a browser
 ## Setup Instructions
 
 Clone the repository:
-```md
+
 ```bash
 git clone https://github.com/DaisyMadera/Book-Tracker-API.git
 cd Book-Tracker-API
