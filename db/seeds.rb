@@ -28,11 +28,11 @@ Book.create! ([
         published_on: Date.new(2011, 5, 4)
     },
     {
-        title:"Finders Keepers",
+        title: "Finders Keepers",
         author: "Stephen King",
         genre: "Crime Thriller",
         rating: 4,
         read_status: "to_read",
         published_on: Date.new(2015, 6, 2)
-    },
+    }
 ])

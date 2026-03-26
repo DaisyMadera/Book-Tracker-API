@@ -1,7 +1,7 @@
 class Api::RootController < ApiController
-    def root  
+    def root
         @books_path = "/api/books"
-        
+
         respond_to do |format|
             format.html
             format.json do
@@ -13,5 +13,5 @@ class Api::RootController < ApiController
               }
             end
         end
-    end 
+    end
 end
